@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUX Viewport Observer</title>
+    <link rel="stylesheet" href="/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100..900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    
+    <section class="dummy box1"><h2>Box 1</h2></section>
+    <section class="dummy box2 viewport"><h2>Box 2</h2>
+        <!-- optional  -->
+        <div class="scrollMark">Scroll -></div>
+        <div class="secStart"><- Start</div>
+        <div class="secEnd"><- End</div>
+    </section>
+
+    <section class="dummy box3"><h2>Box 3</h2> </section>
+    <section class="dummy box4"><h2>Box 4</h2></section>
+
+    
+
+    <script src="/auxObserver.min.js"></script>
+    <script>
+        var element = new auxObserver({
+            secId: ".viewport",
+            offset: {
+                scrollOffset:100,
+                xOffset:50,
+                yOffset:50,
+            },
+            viewport: {
+                onEnter: () => console.log("Entered!"),
+                onExit: () => console.log("Exited!"),
+            },
+            graphs: true,
+        })
+    </script>
+</body>
+</html>
